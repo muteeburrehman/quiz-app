@@ -64,6 +64,8 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuestionViewHo
         return questions.size();
     }
 
+
+
     public int getSelectedAnswerIndex(int position) {
         return selectedAnswers.get(position, -1); // Return -1 if no selection has been made
     }

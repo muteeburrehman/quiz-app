@@ -1,5 +1,6 @@
 package com.example.quizapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         int totalQuestions = questions.size();
         int correctAnswers = 0;
 
-        // Iterate through the questions to count how many correct answers were selected
         for (int i = 0; i < totalQuestions; i++) {
             Question question = questions.get(i);
             int selectedAnswerIndex = adapter.getSelectedAnswerIndex(i);
@@ -57,11 +57,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // Calculate the score and display it using a Toast
         double score = ((double) correctAnswers / totalQuestions) * 100;
         String resultMessage = "You scored " + correctAnswers + " out of " + totalQuestions + ".\n" +
                 "Your percentage: " + String.format("%.2f", score) + "%";
 
-        Toast.makeText(MainActivity.this, resultMessage, Toast.LENGTH_LONG).show();
+        // Start ResultActivity and pass the data
+        Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+        intent.putExtra("score", score);
+        intent.putExtra("totalQuestions", totalQuestions);
+        startActivity(intent);
     }
 }
