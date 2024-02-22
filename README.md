@@ -20,5 +20,6 @@ This Android app allows users to take a quiz on electrophysics topics. Users can
 ## Getting Started
 
 1. Clone the repository:
-   `bash
+   ```bash
    git clone https://github.com/muteeburrehman/quiz-app.git
+   ```
